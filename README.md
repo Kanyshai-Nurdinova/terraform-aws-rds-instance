@@ -14,9 +14,9 @@ module "wordpress_db" {
     username            = "foo"
     publicly_accessible = true
     subnet_ids = [
-        "subnet-09c11e0e37c203833",
-        "subnet-04a116352bfc6810c",
-        "subnet-0b3822d3ef835b61f"
+        "subnet-",
+        "subnet-",
+        "subnet-"
     ]
     allowed_hosts = [
         "50.194.68.230/32",
@@ -24,15 +24,14 @@ module "wordpress_db" {
     ]
 }
 output "region" {
-	value = module.wordpress_db.region
+	value = module.rds.region
 }
 output "subnet_list" {
-	value = module.wordpress_db.subnet_list
+	value = module.rds.subnet_list
 }
 output "allowed_hosts" {
-	value = module.wordpress_db.allowed_hosts
+	value = module.rds.allowed_hosts
 }
-output "wordpress_db_NAME" {
-	value = module.wordpress_db.DB_NAME
+output "rds" {
+	value = module.rds.DB_NAME
 }
-
